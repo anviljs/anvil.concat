@@ -1,0 +1,23 @@
+{
+  "author": "Alex Robson <alex@sharplearningcurve.com> (http://sharplearningcurve.com)",
+  "name": "anvil.concat",
+  "description": "An anvil core plugin that provides file concatenation support",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arobson/anvil.concat.git"
+  },
+  "engines": {
+    "node": "~0.8.3"
+  },
+  "main": "./lib/concat.js",
+  "dependencies": {
+    "js-yaml": "1.0.1"
+  },
+  "devDependencies": { 
+    "anvil.js": ">=0.8.5",
+    "should": "~1.1"
+  },
+  "optionalDependencies": {},
+  "keywords": [ "anvil", "core" ]
+}
