@@ -126,7 +126,7 @@ module.exports = function( _, anvil ) {
 				anvil.log.debug( "transforming json to yaml imports" );
 				file.concat = true;
 				content = _.map( list.imports, function( child ) {
-					return "- import: '" + child + "'";
+					return "- import: '" + child.replace( /[\\]{2}/g, "/" ) + "'";
 				} ).join( "\n" );
 				anvil.fs.write( [ file.workingPath, file.name ], content, done );
 			}
