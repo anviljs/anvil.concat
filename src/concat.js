@@ -83,7 +83,7 @@ module.exports = function( _, anvil ) {
 			} else {
 				anvil.fs.read( file, function( content, error ) {
 					if( !error ) {
-						self.list = JSON.parse( content );
+						self.list = JSON.safeParse( content );
 					}
 					done();
 				} );
@@ -121,7 +121,7 @@ module.exports = function( _, anvil ) {
 		},
 
 		transformJson: function( file, content, done ) {
-			var list = JSON.parse( content );
+			var list = JSON.safeParse( content );
 			if( list.imports && _.isArray( list.imports ) ) {
 				anvil.log.debug( "transforming json to yaml imports" );
 				file.concat = true;
