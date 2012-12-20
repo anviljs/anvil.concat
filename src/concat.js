@@ -1,8 +1,8 @@
-var yaml = require( "yaml-js" );
+var yaml;
 
 module.exports = function( _, anvil ) {
 
-	return anvil.plugin( {
+	anvil.plugin( {
 		name: "anvil.concat",
 		activities: [ "combine", "pre-process" ],
 		commander: [
@@ -12,6 +12,9 @@ module.exports = function( _, anvil ) {
 		translated: false,
 
 		configure: function( config, command, done ) {
+			if( !yaml ) {
+				yaml = require( "yaml-js" );
+			}
 			if( command.concat ) {
 				this.parseFile( command.concat, done );
 			} else {
